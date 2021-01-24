@@ -155,3 +155,17 @@ func FmtDateStr2Unixint(str string) int{
    //fmt.Println(tt.Unix())
    return int(tt.Unix())
 }
+
+func FmtDateStr2Unixint64(str string) int64{
+    //timeStr := "2020-08-06 23:56:02"
+    //fmt.Println("timeStr:", timeStr)
+    var unix_time int64
+    loc, _ := time.LoadLocation("Local")
+    the_time, err := time.ParseInLocation("2006-01-02 15:04:05", str, loc)
+    if err == nil {
+        unix_time = the_time.Unix() //1504082441
+        //fmt.Println(unix_time)
+        return unix_time
+    }
+    return unix_time
+}
