@@ -54,7 +54,7 @@ func LoadServer() {
 	if err != nil {
 		log.Fatalf("Fail to get section 'server': %v", err)
 	}
-	IPAddress = sec.Key("IP_ADDRESS").MustString("debug")
+	IPAddress = sec.Key("IP_ADDRESS").String()
 	HTTPPort = sec.Key("HTTP_PORT").MustInt(8000)
 	ReadTimeout = time.Duration(sec.Key("READ_TIMEOUT").MustInt(60)) * time.Second
 	WriteTimeout =  time.Duration(sec.Key("WRITE_TIMEOUT").MustInt(60)) * time.Second
